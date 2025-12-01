@@ -1,0 +1,16 @@
+# 分区挂载表
+/boot           emmc    /dev/block/bootdevice/by-name/boot           flags=slotselect
+/vendor_boot    emmc    /dev/block/bootdevice/by-name/vendor_boot    flags=slotselect;display="Vendor Boot"
+/dtbo           emmc    /dev/block/bootdevice/by-name/dtbo           flags=slotselect;backup=1
+/vbmeta         emmc    /dev/block/bootdevice/by-name/vbmeta         flags=slotselect;display="VBMeta"
+/vbmeta_system  emmc    /dev/block/bootdevice/by-name/vbmeta_system  flags=slotselect
+
+/system         ext4    /dev/block/mapper/system             flags=slotselect;display="System"
+/system_ext     ext4    /dev/block/mapper/system_ext         flags=slotselect;display="System Ext"
+/vendor         ext4    /dev/block/mapper/vendor             flags=slotselect;display="Vendor"
+/product        ext4    /dev/block/mapper/product            flags=slotselect;display="Product"
+/odm            ext4    /dev/block/mapper/odm                flags=slotselect;display="ODM"
+
+/data           f2fs    /dev/block/bootdevice/by-name/userdata       flags=fileencryption=aes-256-xts
+/metadata       ext4    /dev/block/bootdevice/by-name/metadata       flags=display="Metadata"
+/misc           emmc    /dev/block/bootdevice/by-name/misc
